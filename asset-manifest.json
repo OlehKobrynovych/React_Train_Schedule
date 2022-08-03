@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/React_Train_Schedule/static/css/main.e9122e93.css",
-    "main.js": "/React_Train_Schedule/static/js/main.20b52171.js",
+    "main.css": "/React_Train_Schedule/static/css/main.942b337d.css",
+    "main.js": "/React_Train_Schedule/static/js/main.b4bf4774.js",
     "static/js/787.28cb0dcd.chunk.js": "/React_Train_Schedule/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/React_Train_Schedule/index.html",
-    "main.e9122e93.css.map": "/React_Train_Schedule/static/css/main.e9122e93.css.map",
-    "main.20b52171.js.map": "/React_Train_Schedule/static/js/main.20b52171.js.map",
+    "main.942b337d.css.map": "/React_Train_Schedule/static/css/main.942b337d.css.map",
+    "main.b4bf4774.js.map": "/React_Train_Schedule/static/js/main.b4bf4774.js.map",
     "787.28cb0dcd.chunk.js.map": "/React_Train_Schedule/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9122e93.css",
-    "static/js/main.20b52171.js"
+    "static/css/main.942b337d.css",
+    "static/js/main.b4bf4774.js"
   ]
 }
