@@ -15,10 +15,10 @@ export default function SearchTable() {
         <div className='search-table-wrap'>
             <p>Schedule filter</p>
             <div className='search-table'>
-                <SearchAutocomplete className='search-table__item' search={'name'} setItems={handleChange}/>
-                <SearchAutocomplete className='search-table__item' search={'from'} setItems={handleChange}/>
-                <SearchAutocomplete className='search-table__item' search={'to'} setItems={handleChange}/>
-                <SearchAutocomplete className='search-table__item' search={'price'} setItems={handleChange}/>
+                <SearchAutocomplete search={'name'} setItems={handleChange}/>
+                <SearchAutocomplete search={'from'} setItems={handleChange}/>
+                <SearchAutocomplete search={'to'} setItems={handleChange}/>
+                <SearchAutocomplete search={'price'} setItems={handleChange}/>
             </div>
         </div>
     );

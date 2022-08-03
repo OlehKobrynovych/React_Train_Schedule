@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addRouteThunk, trainsEdit, trainsOldDeleteThunk } from '../../store/trains_reducer';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { addRouteThunk, editClean, trainsDeleteThunk } from '../../store/trains_reducer';
 
 import './AddRoute.css';
 
@@ -21,7 +21,6 @@ const style = {
 };
 
 export default function AddRoute({isAddRoute, setIsAddRoute}) {
-
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [from, setFrom] = useState('');
@@ -57,8 +56,7 @@ export default function AddRoute({isAddRoute, setIsAddRoute}) {
                 price: price,
             };
             if (edit !== null) {
-                dispatch(trainsDeleteThunk(edit.id))
-                dispatch(editClean())
+                dispatch(trainsOldDeleteThunk(edit.id))
             }
             dispatch(addRouteThunk(newRoute))
             setIsAddRoute(false)
@@ -67,12 +65,16 @@ export default function AddRoute({isAddRoute, setIsAddRoute}) {
         }
     };
 
+    const handleClose = () => {
+        dispatch(trainsEdit(null))
+        setIsAddRoute(false)
+    }
+
     return (
         <div>
             <Modal
                 open={isAddRoute}
-                onClose={() => setIsAddRoute(false)}
-                aria-labelledby="modal-modal-title"
+                onClose={handleClose}
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>

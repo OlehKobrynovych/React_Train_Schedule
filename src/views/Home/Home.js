@@ -1,19 +1,18 @@
-import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AppTable from '../../components/AppTable/AppTable';
 import AddRoute from '../../components/AddRoute/AddRoute';
-import { getTrainsThunk } from "../../store/trains_reducer";
 import SearchTable from '../../components/SearchTable/SearchTable';
+import DeleteModal from '../../components/DeleteModal/DeleteModal';
+import { getTrainsThunk } from "../../store/trains_reducer";
+import { Button } from '@mui/material';
 
 import './Home.css';
-import DeleteModal from '../../components/DeleteModal/DeleteModal';
 
 function Home() {
-    
+    const [isAddRoute, setIsAddRoute] = useState(false);
     const dispatch = useDispatch();
     const trains = useSelector(state => state.trains_reducer.trainsFilter);
-    const [isAddRoute, setIsAddRoute] = useState(false);
     const isDeleteRoute = useSelector(state => state.trains_reducer.isDeleteRoute);
 
     useEffect(() => {
@@ -28,7 +27,6 @@ function Home() {
                     + create
                 </Button>
             </div>
-
 
             <SearchTable />
 

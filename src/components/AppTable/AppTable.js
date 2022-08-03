@@ -1,4 +1,7 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { modalOpen, trainsEdit,} from "../../store/trains_reducer";
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,10 +14,6 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import IconButton from '@mui/material/IconButton';
-import { useDispatch } from 'react-redux';
-import { modalOpen, trainsEdit,} from "../../store/trains_reducer";
-import { useState } from 'react';
-
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 

@@ -1,7 +1,7 @@
-// import logo from './logo.svg';
 import { Container } from '@mui/material';
-import './App.css';
 import Home from './views/Home/Home';
+
+import './App.css';
 
 function App() {
   return (

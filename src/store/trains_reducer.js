@@ -39,7 +39,12 @@ export const trainsSlice = createSlice({
             state.isDeleteRoute = !state.isDeleteRoute;
             state.deleteRouteId = null;
         },
+        trainsOldDelete: (state, action) => {
+            state.trainsFilter = state.trainsFilter.filter(el => el.id !== action.payload);
+            state.edit = null;
+        },
         addRoute: (state, action) => {
+            state.trains.push(action.payload);
             state.trainsFilter.push(action.payload);
         },
         modalOpen: (state, action) => {
@@ -48,9 +53,6 @@ export const trainsSlice = createSlice({
         },
         trainsEdit: (state, action) => {
             state.edit = action.payload;
-        },
-        editClean: (state, action) => {
-            state.edit = null;
         },
         searchTrains: (state, action) => {
             state.search[action.payload.search] = action.payload.value;
@@ -75,7 +77,7 @@ export const trainsSlice = createSlice({
     }
 });
 
-export const { setTrains, setError, trainsDelete, addRoute, trainsEdit, editClean, searchTrains, deleteRoute, modalOpen,} = trainsSlice.actions
+export const { setTrains, setError, trainsOldDelete, addRoute, trainsEdit, searchTrains, deleteRoute, modalOpen, trainsDelete, } = trainsSlice.actions
 
 export const getTrainsThunk = () => (dispatch) => {
         // TrainsFetch()
@@ -89,12 +91,22 @@ export const getTrainsThunk = () => (dispatch) => {
         //     dispatch(setError(err));
         // });
 }
-
-export const trainsDeleteThunk = (id) => (dispatch) => {
+export const trainsDeleteThunk = () => (dispatch) => {
         // TrainsDeleteFetch(id)
         //     .then(res => {
         //         if (res.status === 200 && res.data) {
-                    dispatch(trainsDelete(id));
+                    dispatch(trainsDelete());
+            //     }
+            // })
+            // .catch((err) => {
+            //     dispatch(setError(err));
+            // });
+}
+export const trainsOldDeleteThunk = (id) => (dispatch) => {
+        // TrainsDeleteFetch(id)
+        //     .then(res => {
+        //         if (res.status === 200 && res.data) {
+                    dispatch(trainsOldDelete(id));
             //     }
             // })
             // .catch((err) => {
