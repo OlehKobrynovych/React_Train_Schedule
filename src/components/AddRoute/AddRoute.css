@@ -1,0 +1,13 @@
+.add-route_form-item.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    display: block;
+    margin: 10px 0;
+}
+
+.add-route_form-item div {
+    width: 100%;
+}
+
+.add-route_form-error {
+    color: brown;
+    padding: 10px;
+}

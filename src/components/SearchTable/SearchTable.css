@@ -1,0 +1,12 @@
+.search-table {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.search-table-wrap {
+    border: 2px solid #ccc;
+    padding: 10px;
+}

@@ -1,30 +1,37 @@
+import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AppTable from '../../components/AppTable/AppTable';
+import AddRoute from '../../components/AddRoute/AddRoute';
+import { getTrainsThunk } from "../../store/trains_reducer";
+import SearchTable from '../../components/SearchTable/SearchTable';
+
+import './Home.css';
 
 function Home() {
-    const date = [
-        {id: 1, name: 305, from: 'Lviv', to: 'Kyiv', start: '12:00', finish: '16:00', price: 120 },
-        {id: 2, name: 355, from: 'Lviv2', to: 'Rivne', start: '16:00', finish: '19:00', price: 150 },
-        {id: 3, name: 255, from: 'Lviv3', to: 'Rivne12', start: '15:00', finish: '14:00', price: 250 },
-      ];
-
-    const [trains, setTrains] = useState([]);
+    
+    const dispatch = useDispatch();
+    const trains = useSelector(state => state.trains_reducer.trainsFilter);
+    const [isAddRoute, setIsAddRoute] = useState(false);
 
     useEffect(() => {
-        setTrains(date)
+        dispatch(getTrainsThunk())
     }, []);
 
-    // const handleChangeAngle = () => {
-    //     let deg = (Math.atan(window.innerHeight/window.innerWidth) * 57.29577).toFixed();
-    //     if (deg !== angle) {
-    //         setAngle(() => deg); 
-    //     }
-    // }
-    
     return (
-        <div className="train-schedule">
-            <AppTable items={trains}/>
-            asd1
+        <div className="home">
+            <div>
+                <p className="home__text-create">Create a train schedule</p>
+                <Button variant="contained" size="medium" onClick={() => setIsAddRoute(true)}>
+                    + create
+                </Button>
+            </div>
+
+            <SearchTable />
+
+            { isAddRoute && <AddRoute isAddRoute={isAddRoute} setIsAddRoute={setIsAddRoute}/> }
+
+            <AppTable items={trains} setIsAddRoute={setIsAddRoute}/>
         </div>
     );
 }
