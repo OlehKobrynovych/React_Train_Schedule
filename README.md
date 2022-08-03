@@ -36,5 +36,6 @@ This is a simple react app.
 ## Technologies
 Project uses:
 * React (useState, useEffect,)
+* Redux
 * Material UI
 * PropTypes

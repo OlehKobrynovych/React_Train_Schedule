@@ -17,6 +17,8 @@ export const trainsSlice = createSlice({
         trainsFilter: [],
         error: '',
         edit: null,
+        isDeleteRoute: false,
+        deleteRouteId: null,
         search: {
             // name: null,
             // from: null,
@@ -33,10 +35,16 @@ export const trainsSlice = createSlice({
             state.error = action.payload;
         },
         trainsDelete: (state, action) => {
-            state.trainsFilter = state.trainsFilter.filter(el => el.id !== action.payload);
+            state.trainsFilter = state.trainsFilter.filter(el => el.id !== state.deleteRouteId);
+            state.isDeleteRoute = !state.isDeleteRoute;
+            state.deleteRouteId = null;
         },
         addRoute: (state, action) => {
             state.trainsFilter.push(action.payload);
+        },
+        modalOpen: (state, action) => {
+            state.isDeleteRoute = !state.isDeleteRoute;
+            state.deleteRouteId = action.payload;
         },
         trainsEdit: (state, action) => {
             state.edit = action.payload;
@@ -67,7 +75,7 @@ export const trainsSlice = createSlice({
     }
 });
 
-export const { setTrains, setError, trainsDelete, addRoute, trainsEdit, editClean, searchTrains,} = trainsSlice.actions
+export const { setTrains, setError, trainsDelete, addRoute, trainsEdit, editClean, searchTrains, deleteRoute, modalOpen,} = trainsSlice.actions
 
 export const getTrainsThunk = () => (dispatch) => {
         // TrainsFetch()

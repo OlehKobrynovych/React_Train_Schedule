@@ -7,12 +7,14 @@ import { getTrainsThunk } from "../../store/trains_reducer";
 import SearchTable from '../../components/SearchTable/SearchTable';
 
 import './Home.css';
+import DeleteModal from '../../components/DeleteModal/DeleteModal';
 
 function Home() {
     
     const dispatch = useDispatch();
     const trains = useSelector(state => state.trains_reducer.trainsFilter);
     const [isAddRoute, setIsAddRoute] = useState(false);
+    const isDeleteRoute = useSelector(state => state.trains_reducer.isDeleteRoute);
 
     useEffect(() => {
         dispatch(getTrainsThunk())
@@ -27,9 +29,12 @@ function Home() {
                 </Button>
             </div>
 
+
             <SearchTable />
 
             { isAddRoute && <AddRoute isAddRoute={isAddRoute} setIsAddRoute={setIsAddRoute}/> }
+
+            { isDeleteRoute && <DeleteModal isDeleteRoute={isDeleteRoute} /> }
 
             <AppTable items={trains} setIsAddRoute={setIsAddRoute}/>
         </div>

@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from 'react-redux';
-import { trainsDeleteThunk, trainsEdit,} from "../../store/trains_reducer";
+import { modalOpen, trainsEdit,} from "../../store/trains_reducer";
 import { useState } from 'react';
 
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -49,7 +49,7 @@ function stableSort(array, comparator) {
 const headCells = [
     {
         id: 'id',
-        numeric: false,
+        numeric: true,
         label: 'id',
     },
     {
@@ -159,7 +159,7 @@ export default function AppTable({items, setIsAddRoute,}) {
     }
   
     const handleDelete = (id) => {
-        dispatch(trainsDeleteThunk(id))
+        dispatch(modalOpen(id))
     }
 
     return (

@@ -83,9 +83,12 @@ export default function AddRoute({isAddRoute, setIsAddRoute}) {
                     <TextField className="add-route_form-item" onChange={(e) => setStart(e.target.value.trim())} value={start} id="outlined-basic" label="Enter start" variant="outlined" />
                     <TextField className="add-route_form-item" onChange={(e) => setFinish(e.target.value.trim())} value={finish} id="outlined-basic" label="Enter finish" variant="outlined" />
                     <TextField className="add-route_form-item" onChange={(e) => setPrice(e.target.value.trim())} value={price} id="outlined-basic" label="Enter price" variant="outlined" />
-                    <div>
+                    <div className="add-route_btn-wrap">
                         <Button onClick={handleSend} variant="contained" size="medium">
-                            to create
+                            create
+                        </Button>
+                        <Button onClick={() => setIsAddRoute(false)} variant="contained" color="error" size="medium">
+                            cancel
                         </Button>
                     </div>
                     { isError && (<div className="add-route_form-error">!!!You need to fill everything!!!</div>)}
