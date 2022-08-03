@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/React_Train_Schedule/static/css/main.564db972.css",
+    "main.css": "/React_Train_Schedule/static/css/main.99e731d2.css",
     "main.js": "/React_Train_Schedule/static/js/main.28a9628b.js",
     "static/js/787.28cb0dcd.chunk.js": "/React_Train_Schedule/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/React_Train_Schedule/index.html",
-    "main.564db972.css.map": "/React_Train_Schedule/static/css/main.564db972.css.map",
+    "main.99e731d2.css.map": "/React_Train_Schedule/static/css/main.99e731d2.css.map",
     "main.28a9628b.js.map": "/React_Train_Schedule/static/js/main.28a9628b.js.map",
     "787.28cb0dcd.chunk.js.map": "/React_Train_Schedule/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.564db972.css",
+    "static/css/main.99e731d2.css",
     "static/js/main.28a9628b.js"
   ]
 }
